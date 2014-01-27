@@ -5,7 +5,7 @@ import setting
 
 ENDPOINT = 'https://rest.nexmo.com/sms/json'
 
-def nexmo(data):
+def nexmoSMS(data):
     return requests.post(ENDPOINT, data=data).text
 
 if __name__ == '__main__':
@@ -18,4 +18,4 @@ if __name__ == '__main__':
         'type': 'unicode',
         'text': text*2 + str(len(text*2)),
     }
-    print nexmo(data)
+    print nexmoSMS(data)
