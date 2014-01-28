@@ -9,5 +9,6 @@
 build
 log
 setting.py
+pinkoi.py
 venv
 docs/_build/
