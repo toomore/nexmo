@@ -3,9 +3,7 @@ import requests
 import setting
 
 
-
 class nexmoSMS(object):
-
     def __init__(self, api_key, api_secret, _from, to, text, _type='unicode',
             status_report_req=0, client_ref=''):
         '''
@@ -41,7 +39,8 @@ if __name__ == '__main__':
     data = {
         'api_key': setting.api_key,
         'api_secret': setting.api_secret,
-        '_from': setting.msg_from,
+        #'_from': setting.msg_from,
+        '_from': setting.msg_to,
         'to': setting.msg_to,
         'text': text*2 + str(len(text*2)),
         'client_ref': setting.client_ref,
