@@ -7,7 +7,7 @@ import setting
 class nexmoSMS(object):
 
     def __init__(self, api_key, api_secret, _from, to, text, _type='unicode',
-                       status-report-req=0, client-ref='')
+            status_report_req=0, client_ref=''):
         '''
         :param dict data: send data
         :rtype: dict
@@ -41,13 +41,16 @@ if __name__ == '__main__':
     data = {
         'api_key': setting.api_key,
         'api_secret': setting.api_secret,
-        'from': setting.msg_from,
+        '_from': setting.msg_from,
         'to': setting.msg_to,
-        'client-ref': setting.client_ref,
-        'type': 'unicode',
         'text': text*2 + str(len(text*2)),
+        'client_ref': setting.client_ref,
     }
-    r = nexmoSMS(data)
-    print r
-    print type(r)
-    print r['messages']
+
+    r = nexmoSMS(**data)
+    print 'send:', r.send()
+    print 'type of sms:', type(r.sms)
+
+    for i in dir(r.sms):
+        print i, getattr(r.sms, i)
+
