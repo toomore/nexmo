@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import requests
 import setting
-
+from pprint import pprint
 
 
 def get_price(data):
@@ -19,8 +19,8 @@ if __name__ == '__main__':
     data = {
             'api_key': setting.api_key,
             'api_secret': setting.api_secret,
-            'country': 'TW', #get_price
-            'prefix': 886, #get_prefix_price
+            'country': 'TW',  #get_price
+            'prefix': 886,  #get_prefix_price
            }
-    print get_price(data)
-    print get_prefix_price(data)
+    pprint(get_price(data))
+    pprint(get_prefix_price(data))
